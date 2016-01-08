@@ -1,0 +1,44 @@
+<html>
+	<head>
+		<style>
+			.div-class {
+				width : 200px;
+				height : 200px;
+				border : 1px solid red;
+				text-align: center;
+			}
+			p{
+				margin-top:50%;
+			}
+			.container {
+				display : inline-flex;
+				height:100%;
+				width:100%;
+			}
+		</style>
+	</head>
+<body>
+<h2>Please click '@#$%@#$%@#$%' to see the hidden text</h2>
+<div class='container'>
+	<div class='div-class'><p>Hidden text 1</p></div>
+	<div class='div-class'><p>Hidden text 2</p></div>
+	<div class='div-class'><p>Hidden text 3</p></div>
+</div>
+	<script>
+		var id = document.getElementsByClassName('div-class');
+		var arr = [];
+		for(var i=0; i < id.length;i++){			
+			arr.push(id[i].innerHTML);
+			// Closures here, so creating self Invoking function,
+			// to create new function each time to get new j value
+			(function(j){
+				id[j].children[0].innerHTML='@#$%@#$%@#$%'
+				id[j].addEventListener('click', function(e){
+				console.log(arr[j]+ ' '+ j );
+				id[j].innerHTML = arr[j];
+				})
+			})(i);
+		}	
+	</script>
+</body>
+</html>
