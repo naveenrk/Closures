@@ -30,7 +30,7 @@
 		for(var i=0; i < id.length;i++){			
 			arr.push(id[i].innerHTML);
 			// Closures here, so creating self Invoking function,
-			// to create new function each time to get new j value
+			// to create new function each time to get new j value(after each exection context finishes)
 			(function(j){
 				id[j].children[0].innerHTML='@#$%@#$%@#$%'
 				id[j].addEventListener('click', function(e){
